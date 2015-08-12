@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http//www.springframework.org/schema/context"
+	xmlns:jaxws="http://cxf.apache.org/jaxws" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+														http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+														http://cxf.apache.org/jaxws
+														http://cxf.apache.org/schemas/jaxws.xsd">
+
+	<!-- CXF 的内部配置文件，cxf-extension-soap.xml 在3.x版本中不需要 -->
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<!-- <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" /> -->
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+
+	<!-- 消息处理前后的日志类，也可以不需要配置
+	<bean id="inMessageInterceptor" class="org.apache.cxf.interceptor.LoggingInInterceptor" />
+	<bean id="outMessageInterceptor" class="org.apache.cxf.interceptor.LoggingOutInterceptor" />
+	 -->
+	 
+	<bean id="helloService" class="com.fancye.service.HelloServiceImpl" />
+	
+	<jaxws:server id="helloServer" serviceClass="com.fancye.service.HelloService" address="/HelloServicePort">
+		<jaxws:serviceBean>
+			<ref bean="helloService" />
+		</jaxws:serviceBean>
+		<!-- <jaxws:inInterceptors>
+			<ref bean="inMessageInterceptor" />
+		</jaxws:inInterceptors>
+		<jaxws:outInterceptors>
+			<ref bean="outMessageInterceptor" />
+		</jaxws:outInterceptors>
+		 -->
+	</jaxws:server>
+</beans>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="apache_cxf_spring"
+  id="myeclipse.1439362583482"
+  context-root="/apache_cxf_spring"
+  j2ee-spec="6.0"
+  archive="apache_cxf_spring.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+
