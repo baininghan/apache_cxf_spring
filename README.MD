@@ -15,11 +15,17 @@
 
 ### 常见问题
 
-#### **JAX 无法处理无参构造函数的类型作为接口方法的返回参数**
+1. JAX 无法处理无参构造函数的类型作为接口方法的返回参数，例如下面的接口方法
 ```java
-// Exception in thread "main" org.apache.cxf.binding.soap.SoapFault: 
-// Marshalling Error: class java.util.HashMap以及其任何超类对此上下文都是未知的。
 public List<Map<String, Object>> getListOfMap(String key, String value);
+```
+启动的时候，或者客户端访问的时候，会报如下异常：
+```
+Exception in thread "main" org.apache.cxf.binding.soap.SoapFault: 
+	Marshalling Error: class java.util.HashMap以及其任何超类对此上下文都是未知的。
+...
+...
+
 ```
 可以通过适配器的方式来解决，需要继承 `XmlAdapter` 类，参考[StringObjectMapAdapter](/src/main/javacom/fancye/client/adapter/StringObjectMapAdapter.java)
 
