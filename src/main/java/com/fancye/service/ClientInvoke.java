@@ -26,14 +26,14 @@ public class ClientInvoke {
 //		client.sayHi("Fancye");
 		
 		//（2）调用客户端配置文件，采用代码编写实现
-		ApplicationContext context = new ClassPathXmlApplicationContext("com/fancye/service/cxf-client-beans.xml");
-		HelloService client = (HelloService)context.getBean("helloService");
-		client.sayHi("Fancye");
+//		ApplicationContext context = new ClassPathXmlApplicationContext("com/fancye/service/cxf-client-beans.xml");
+//		HelloService client = (HelloService)context.getBean("helloService");
+//		client.sayHi("Fancye");
 		
 		// （3）动态调用，不依赖于服务器接口文件
-//		DynamicClientFactory factory = DynamicClientFactory.newInstance();
-//		Client client = factory.createClient(wsdl);
-//		client.invoke("sayHi", "Fancye");
+		DynamicClientFactory factory = DynamicClientFactory.newInstance();
+		Client client = factory.createClient(wsdl);
+		client.invoke("sayHi", "Fancye");
 		
 		//（4）还可以使用其他第三方的插件生成客户端代码，比如MyEclipse自带的JAX插件
 	}
