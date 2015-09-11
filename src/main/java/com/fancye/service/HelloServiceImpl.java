@@ -1,10 +1,13 @@
 package com.fancye.service;
 
+import javax.jws.WebService;
+
 /**
  * 
  * @author Fancye
  *
  */
+@WebService
 public class HelloServiceImpl implements HelloService {
 
 	@Override

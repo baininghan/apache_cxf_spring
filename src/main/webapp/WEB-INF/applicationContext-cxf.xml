@@ -31,4 +31,12 @@
 		</jaxws:outInterceptors>
 		 -->
 	</jaxws:server>
+	
+	<!-- Double Server -->
+	<bean id="helloDoubleService" class="com.fancye.service.HelloDoubleServiceImpl" />
+	<jaxws:server id="helloDoubleServer" serviceClass="com.fancye.service.HelloDoubleService" address="/HelloDoubleServicePort">
+		<jaxws:serviceBean>
+			<ref bean="helloDoubleService" />
+		</jaxws:serviceBean>
+	</jaxws:server>
 </beans>
