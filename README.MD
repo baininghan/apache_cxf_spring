@@ -13,6 +13,10 @@
  Win10
 ```
 
+### 几个在线 Web Service 接口
+
+[在线接口](/src/main/java/com/fancye/client/online/ClientOnlineInvoke.java)
+
 ### 常见问题
 
 1. JAX 无法处理无参构造函数的类型作为接口方法的返回参数，例如下面的接口方法
