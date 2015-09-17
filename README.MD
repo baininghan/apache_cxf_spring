@@ -31,7 +31,27 @@ Exception in thread "main" org.apache.cxf.binding.soap.SoapFault:
 ...
 
 ```
-可以通过适配器的方式来解决，需要继承 `XmlAdapter` 类，参考[StringObjectMapAdapter](/src/main/javacom/fancye/client/adapter/StringObjectMapAdapter.java)
+第一种解决方案：可以通过适配器的方式来解决，需要继承 `XmlAdapter` 类，参考[StringObjectMapAdapter](/src/main/javacom/fancye/client/adapter/StringObjectMapAdapter.java)，[其他资料](http://www.eclipse.org/eclipselink/documentation/2.6/moxy/advanced_concepts006.htm)
+第二种解决方案：`Map`改为`HashMap`
 
-[其他资料](http://www.eclipse.org/eclipselink/documentation/2.6/moxy/advanced_concepts006.htm)
+2. 使用动态客户端调用WSDL时，若出现以下错误：
+```
+Exception in thread "main" org.apache.cxf.service.factory.ServiceConstructionException : Failed to create service.
+     at org.apache.cxf.wsdl11.WSDLServiceFactory.<init>(WSDLServiceFactory.java:80)
+     at org.apache.cxf.endpoint.dynamic.DynamicClientFactory.createClient(DynamicClientFactory.java:292)
+     at org.apache.cxf.endpoint.dynamic.DynamicClientFactory.createClient(DynamicClientFactory.java:235)
+     at org.apache.cxf.endpoint.dynamic.DynamicClientFactory.createClient(DynamicClientFactory.java:228)
+     at org.apache.cxf.endpoint.dynamic.DynamicClientFactory.createClient(DynamicClientFactory.java:183)
+     at com.ws.client.ClientTest.main( ClientTest.java:28)
+Caused by: javax.wsdl.WSDLException: WSDLException (at /soap:Envelope): faultCode=INVALID_WSDL: Expected element '{http://schemas.xmlsoap.org/wsdl/}definitions'.
+     at com.ibm.wsdl.xml.WSDLReaderImpl.checkElementName(Unknown Source)
+     at com.ibm.wsdl.xml.WSDLReaderImpl.parseDefinitions(Unknown Source)
+     at com.ibm.wsdl.xml.WSDLReaderImpl.readWSDL(Unknown Source)
+     at com.ibm.wsdl.xml.WSDLReaderImpl.readWSDL(Unknown Source)
+     at org.apache.cxf.wsdl11.WSDLManagerImpl.loadDefinition(WSDLManagerImpl.java:247)
+     at org.apache.cxf.wsdl11.WSDLManagerImpl.getDefinition(WSDLManagerImpl.java:192)
+     at org.apache.cxf.wsdl11.WSDLServiceFactory.<init>(WSDLServiceFactory.java:78)
+     ... 5 more
+```
+此处是因为你访问的WSDL地址后面忘记加`?wsdl`
 
