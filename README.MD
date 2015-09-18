@@ -19,7 +19,7 @@
 
 ### 常见问题
 
-1. JAX 无法处理无参构造函数的类型作为接口方法的返回参数，例如下面的接口方法
+#### JAX 无法处理无参构造函数的类型作为接口方法的返回参数，例如下面的接口方法
 ```java
 public List<Map<String, Object>> getListOfMap(String key, String value);
 ```
@@ -31,10 +31,10 @@ Exception in thread "main" org.apache.cxf.binding.soap.SoapFault:
 ...
 
 ```
-第一种解决方案：可以通过适配器的方式来解决，需要继承 `XmlAdapter` 类，参考[StringObjectMapAdapter](/src/main/javacom/fancye/client/adapter/StringObjectMapAdapter.java)，[其他资料](http://www.eclipse.org/eclipselink/documentation/2.6/moxy/advanced_concepts006.htm)
-第二种解决方案：`Map`改为`HashMap`
+- 第一种解决方案：可以通过适配器的方式来解决，需要继承 `XmlAdapter` 类，参考[StringObjectMapAdapter](/src/main/javacom/fancye/client/adapter/StringObjectMapAdapter.java)，[其他资料](http://www.eclipse.org/eclipselink/documentation/2.6/moxy/advanced_concepts006.htm)
+- 第二种解决方案：`Map`改为`HashMap`
 
-2. 使用动态客户端调用WSDL时，若出现以下错误：
+#### 使用动态客户端调用WSDL时，若出现以下错误：
 ```
 Exception in thread "main" org.apache.cxf.service.factory.ServiceConstructionException : Failed to create service.
      at org.apache.cxf.wsdl11.WSDLServiceFactory.<init>(WSDLServiceFactory.java:80)
@@ -54,4 +54,3 @@ Caused by: javax.wsdl.WSDLException: WSDLException (at /soap:Envelope): faultCod
      ... 5 more
 ```
 此处是因为你访问的WSDL地址后面忘记加`?wsdl`
-
