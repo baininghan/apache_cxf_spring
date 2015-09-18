@@ -2,16 +2,24 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 				xmlns:context="http//www.springframework.org/schema/context"
 				xmlns:jaxws="http://cxf.apache.org/jaxws"
+				xmlns:http-conf="http://cxf.apache.org/transports/http/configuration"
 				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 				xsi:schemaLocation="http://www.springframework.org/schema/beans
 														http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 														http://www.springframework.org/schema/context
 														http://www.springframework.org/schema/context/spring-context-3.0.xsd
 														http://cxf.apache.org/jaxws
-														http://cxf.apache.org/schemas/jaxws.xsd" >
+														http://cxf.apache.org/schemas/jaxws.xsd
+														http://cxf.apache.org/transports/http/configuration    
+             											http://cxf.apache.org/schemas/configuration/http-conf.xsd " >
 
 	<!-- 定义客户端 -->
 	<jaxws:client id="helloService" 
 				serviceClass="com.fancye.service.HelloService"
 				address="http://localhost:8080/apache_cxf_spring/service/HelloServicePort?wsdl" />
+	
+	<!-- 设置客户端访问服务端的连接超时时间（默认30000毫秒），以及数据响应时间（默认60000毫秒） -->
+	<http-conf:conduit name="*.http-conduit">
+		<http-conf:client ConnectionTimeout="30000" ReceiveTimeout="60000" />
+	</http-conf:conduit>
 </beans>

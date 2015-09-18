@@ -12,10 +12,10 @@
 	<!-- <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" /> -->
 	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
 
-	<!-- 消息处理前后的日志类，也可以不需要配置
+	<!-- 消息处理前后的日志类，也可以不需要配置 -->
 	<bean id="inMessageInterceptor" class="org.apache.cxf.interceptor.LoggingInInterceptor" />
 	<bean id="outMessageInterceptor" class="org.apache.cxf.interceptor.LoggingOutInterceptor" />
-	 -->
+	 
 	 
 	<bean id="helloService" class="com.fancye.service.HelloServiceImpl" />
 	
@@ -23,13 +23,12 @@
 		<jaxws:serviceBean>
 			<ref bean="helloService" />
 		</jaxws:serviceBean>
-		<!-- <jaxws:inInterceptors>
+		<jaxws:inInterceptors>
 			<ref bean="inMessageInterceptor" />
 		</jaxws:inInterceptors>
 		<jaxws:outInterceptors>
 			<ref bean="outMessageInterceptor" />
 		</jaxws:outInterceptors>
-		 -->
 	</jaxws:server>
 	
 	<!-- Double Server -->

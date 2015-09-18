@@ -6,12 +6,16 @@ import java.util.Map;
 import org.apache.cxf.endpoint.Client;
 import org.apache.cxf.endpoint.dynamic.DynamicClientFactory;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
+import org.apache.cxf.phase.Phase;
+import org.apache.cxf.transport.http.HTTPConduit;
 import org.apache.cxf.transport.http.ProxyFactory;
+import org.apache.cxf.transports.http.configuration.HTTPClientPolicy;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.fancye.client.adapter.StringObjectMap;
 import com.fancye.client.adapter.StringObjectMap.StringObjectEntry;
+import com.fancye.client.interceptor.MyMessageInterceptor;
 import com.fancye.service.HelloService;
 
 /**
