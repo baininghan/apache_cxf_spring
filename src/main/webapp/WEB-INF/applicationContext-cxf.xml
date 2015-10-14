@@ -16,7 +16,6 @@
 	<bean id="inMessageInterceptor" class="org.apache.cxf.interceptor.LoggingInInterceptor" />
 	<bean id="outMessageInterceptor" class="org.apache.cxf.interceptor.LoggingOutInterceptor" />
 	 
-	 
 	<bean id="helloService" class="com.fancye.service.HelloServiceImpl" />
 	
 	<jaxws:server id="helloServer" serviceClass="com.fancye.service.HelloService" address="/HelloServicePort">
@@ -32,10 +31,19 @@
 	</jaxws:server>
 	
 	<!-- Double Server -->
-	<bean id="helloDoubleService" class="com.fancye.service.HelloDoubleServiceImpl" />
-	<jaxws:server id="helloDoubleServer" serviceClass="com.fancye.service.HelloDoubleService" address="/HelloDoubleServicePort">
-		<jaxws:serviceBean>
-			<ref bean="helloDoubleService" />
-		</jaxws:serviceBean>
-	</jaxws:server>
+<!-- 	<bean id="helloDoubleService" class="com.fancye.service.HelloDoubleServiceImpl" /> -->
+<!-- 	<jaxws:server id="helloDoubleServer" serviceClass="com.fancye.service.HelloDoubleService" address="/HelloDoubleServicePort"> -->
+<!-- 		<jaxws:serviceBean> -->
+<!-- 			<ref bean="helloDoubleService" /> -->
+<!-- 		</jaxws:serviceBean> -->
+<!-- 	</jaxws:server> -->
+	
+	<bean id="soapAuth" class="com.fancye.service.interceptor.AuthorizationInterceptor" >
+		<property name="token" value="Token" /><!-- 此处设置一个口令进行测试，实际环境可以使用MD5进行加密 -->
+	</bean>
+	<jaxws:endpoint id="authServer" implementor="com.fancye.service.HelloDoubleServiceImpl" address="/HelloDoubleServicePort">
+		<jaxws:inInterceptors>
+			<ref bean="soapAuth" />
+		</jaxws:inInterceptors>
+	</jaxws:endpoint>
 </beans>
