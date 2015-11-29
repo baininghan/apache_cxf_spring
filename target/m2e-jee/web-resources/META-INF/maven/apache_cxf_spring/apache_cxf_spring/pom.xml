@@ -63,6 +63,7 @@
 		</dependency>
 
 	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -75,6 +76,22 @@
 					<target>1.7</target>
 					<encoding>UTF-8</encoding>
 				</configuration>
+			</plugin>
+			<!-- To define the plugin version in your parent POM -->
+			<pluginManagement>
+				<plugins>
+					<plugin>
+						<groupId>ch.elca.el4j.maven.plugins</groupId>
+						<artifactId>maven-depgraph-plugin</artifactId>
+						<version>3.1</version>
+					</plugin>
+				</plugins>
+			</pluginManagement>
+			<!-- To use the plugin goals in your POM or parent POM -->
+			<plugin>
+				<groupId>ch.elca.el4j.maven.plugins</groupId>
+				<artifactId>maven-depgraph-plugin</artifactId>
+				<version>3.1</version>
 			</plugin>
 		</plugins>
 	</build>

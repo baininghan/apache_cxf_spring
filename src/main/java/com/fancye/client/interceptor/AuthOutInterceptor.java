@@ -21,7 +21,7 @@ import org.w3c.dom.Element;
  * 
  */
 public class AuthOutInterceptor extends AbstractSoapInterceptor {
-
+	 
 	private AuthHeader authHeader = new AuthHeader();
 
 	public AuthOutInterceptor() {

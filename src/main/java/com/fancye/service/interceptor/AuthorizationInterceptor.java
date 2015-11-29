@@ -50,6 +50,10 @@ public class AuthorizationInterceptor extends AbstractPhaseInterceptor<SoapMessa
 			throw new IllegalArgumentException("The Token wrong!");
 		}
 	}
+	
+	public void handleFault(SoapMessage message) throws Fault {
+		
+	}
 
 	/**
 	 * 校验指定的Qname头

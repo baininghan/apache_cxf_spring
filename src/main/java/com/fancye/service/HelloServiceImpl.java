@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.jws.WebService;
 
+
 /**
  * 
  * @author Fancye
@@ -18,6 +19,11 @@ public class HelloServiceImpl implements HelloService {
 	@Override
 	public void sayHi(String name) {
 		System.out.println("Hi, " + name);
+	}
+	
+	@Override
+	public void addPerson(Person person){
+		System.out.println(person.toString());
 	}
 	
 	@Override

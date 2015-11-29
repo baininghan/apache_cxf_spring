@@ -19,6 +19,8 @@ public interface HelloService {
 
 	public void sayHi(String name);
 	
+	public void addPerson(Person person);
+	
 	@XmlJavaTypeAdapter(StringObjectMapAdapter.class)
 	public List<Map<String, Object>> getListOfMap(String key, String value);
 }
