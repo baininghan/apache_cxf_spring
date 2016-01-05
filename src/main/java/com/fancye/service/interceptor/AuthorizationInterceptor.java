@@ -10,6 +10,8 @@ import javax.xml.soap.SOAPMessage;
 import org.apache.cxf.binding.soap.SoapHeader;
 import org.apache.cxf.binding.soap.SoapMessage;
 import org.apache.cxf.binding.soap.saaj.SAAJInInterceptor;
+import org.apache.cxf.common.i18n.Message;
+import org.apache.cxf.frontend.FaultInfoException;
 import org.apache.cxf.interceptor.Fault;
 import org.apache.cxf.phase.AbstractPhaseInterceptor;
 import org.apache.cxf.phase.Phase;
@@ -46,9 +48,19 @@ public class AuthorizationInterceptor extends AbstractPhaseInterceptor<SoapMessa
 	@Override
 	public void handleMessage(SoapMessage message) throws Fault {
 		System.out.println("=========>message:" + message);
-		if (!checkQnameHeader(message) && !checkMessageHeader(message)) {
-			throw new IllegalArgumentException("The Token wrong!");
-		}
+		
+//		if (!checkQnameHeader(message) && !checkMessageHeader(message)) {
+//			throw new IllegalArgumentException("The Token wrong!");
+//		}
+		
+		System.out.println(message.getExchange().getInMessage());
+		System.out.println(message.getExchange().getInFaultMessage());
+		System.out.println(message.getExchange().getOutMessage());
+		System.out.println(message.getExchange().getOutFaultMessage());
+//		if (true) {
+//			throw new Fault((Message) message.getExchange().getInMessage());
+//		}
+		
 	}
 	
 	public void handleFault(SoapMessage message) throws Fault {
