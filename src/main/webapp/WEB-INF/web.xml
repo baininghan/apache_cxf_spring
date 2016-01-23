@@ -10,7 +10,7 @@
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/applicationContext-cxf.xml</param-value>
+		<param-value>/WEB-INF/applicationContext-cxf.xml,/WEB-INF/restful.xml</param-value>
 	</context-param>
 
 	<listener>

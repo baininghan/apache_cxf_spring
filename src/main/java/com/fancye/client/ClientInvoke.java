@@ -62,6 +62,7 @@ public class ClientInvoke {
 //		m.invoke(person, "Joe Schmoe");
 //		 
 //		client.invoke("addPerson", person);
+		
 		System.exit(0);
 	}
 

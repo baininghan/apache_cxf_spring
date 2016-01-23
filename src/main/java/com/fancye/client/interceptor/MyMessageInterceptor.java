@@ -55,6 +55,7 @@ public class MyMessageInterceptor extends AbstractPhaseInterceptor<Message> {
 		}
 		
 		SOAPMessage mess = msg.getContent(SOAPMessage.class);
+		msg.setContent(SOAPMessage.class, mess);
 	}
 
 }
