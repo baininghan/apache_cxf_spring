@@ -1,7 +1,7 @@
 
-Ê¹ÓÃ[Apache CXF](http://cxf.apache.org/) ÊµÏÖ Web Service µÄÒ»¸ö¼òµ¥Àı×Ó
+ä½¿ç”¨[Apache CXF](http://cxf.apache.org/) å®ç° Web Service çš„ä¸€ä¸ªç®€å•ä¾‹å­
 
-#### ¿ª·¢»·¾³
+#### å¼€å‘ç¯å¢ƒ
 
 ```
  Apache CXF : 3.1.2
@@ -13,28 +13,28 @@
  Win10
 ```
 
-#### ¼¸¸öÔÚÏß Web Service ½Ó¿Ú
+#### å‡ ä¸ªåœ¨çº¿ Web Service æ¥å£
 
-[ÔÚÏß½Ó¿Ú](/src/main/java/com/fancye/client/online/ClientOnlineInvoke.java)
+[åœ¨çº¿æ¥å£](/src/main/java/com/fancye/client/online/ClientOnlineInvoke.java)
 
-#### ³£¼ûÎÊÌâ
+#### å¸¸è§é—®é¢˜
 
-##### JAX ÎŞ·¨´¦ÀíÎŞ²Î¹¹Ôìº¯ÊıµÄÀàĞÍ×÷Îª½Ó¿Ú·½·¨µÄ·µ»Ø²ÎÊı£¬ÀıÈçÏÂÃæµÄ½Ó¿Ú·½·¨
+##### JAX æ— æ³•å¤„ç†æ— å‚æ„é€ å‡½æ•°çš„ç±»å‹ä½œä¸ºæ¥å£æ–¹æ³•çš„è¿”å›å‚æ•°ï¼Œä¾‹å¦‚ä¸‹é¢çš„æ¥å£æ–¹æ³•
 ```java
 public List<Map<String, Object>> getListOfMap(String key, String value);
 ```
-Æô¶¯µÄÊ±ºò£¬»òÕß¿Í»§¶Ë·ÃÎÊµÄÊ±ºò£¬»á±¨ÈçÏÂÒì³££º
+å¯åŠ¨çš„æ—¶å€™ï¼Œæˆ–è€…å®¢æˆ·ç«¯è®¿é—®çš„æ—¶å€™ï¼Œä¼šæŠ¥å¦‚ä¸‹å¼‚å¸¸ï¼š
 ```
 Exception in thread "main" org.apache.cxf.binding.soap.SoapFault: 
-	Marshalling Error: class java.util.HashMapÒÔ¼°ÆäÈÎºÎ³¬Àà¶Ô´ËÉÏÏÂÎÄ¶¼ÊÇÎ´ÖªµÄ¡£
+	Marshalling Error: class java.util.HashMapä»¥åŠå…¶ä»»ä½•è¶…ç±»å¯¹æ­¤ä¸Šä¸‹æ–‡éƒ½æ˜¯æœªçŸ¥çš„ã€‚
 ...
 ...
 
 ```
-- µÚÒ»ÖÖ½â¾ö·½°¸£º¿ÉÒÔÍ¨¹ıÊÊÅäÆ÷µÄ·½Ê½À´½â¾ö£¬ĞèÒª¼Ì³Ğ `XmlAdapter` Àà£¬²Î¿¼[StringObjectMapAdapter](/src/main/javacom/fancye/client/adapter/StringObjectMapAdapter.java)£¬[ÆäËû×ÊÁÏ](http://www.eclipse.org/eclipselink/documentation/2.6/moxy/advanced_concepts006.htm)
-- µÚ¶şÖÖ½â¾ö·½°¸£º`Map`¸ÄÎª`HashMap`
+- ç¬¬ä¸€ç§è§£å†³æ–¹æ¡ˆï¼šå¯ä»¥é€šè¿‡é€‚é…å™¨çš„æ–¹å¼æ¥è§£å†³ï¼Œéœ€è¦ç»§æ‰¿ `XmlAdapter` ç±»ï¼Œå‚è€ƒ[StringObjectMapAdapter](/src/main/javacom/fancye/client/adapter/StringObjectMapAdapter.java)ï¼Œ[å…¶ä»–èµ„æ–™](http://www.eclipse.org/eclipselink/documentation/2.6/moxy/advanced_concepts006.htm)
+- ç¬¬äºŒç§è§£å†³æ–¹æ¡ˆï¼š`Map`æ”¹ä¸º`HashMap`
 
-##### Ê¹ÓÃ¶¯Ì¬¿Í»§¶Ëµ÷ÓÃWSDLÊ±£¬Èô³öÏÖÒÔÏÂ´íÎó£º
+##### ä½¿ç”¨åŠ¨æ€å®¢æˆ·ç«¯è°ƒç”¨WSDLæ—¶ï¼Œè‹¥å‡ºç°ä»¥ä¸‹é”™è¯¯ï¼š
 ```
 Exception in thread "main" org.apache.cxf.service.factory.ServiceConstructionException : Failed to create service.
      at org.apache.cxf.wsdl11.WSDLServiceFactory.<init>(WSDLServiceFactory.java:80)
@@ -53,9 +53,9 @@ Caused by: javax.wsdl.WSDLException: WSDLException (at /soap:Envelope): faultCod
      at org.apache.cxf.wsdl11.WSDLServiceFactory.<init>(WSDLServiceFactory.java:78)
      ... 5 more
 ```
-´Ë´¦ÊÇÒòÎªÄã·ÃÎÊµÄWSDLµØÖ·ºóÃæÍü¼Ç¼Ó`?wsdl`
+æ­¤å¤„æ˜¯å› ä¸ºä½ è®¿é—®çš„WSDLåœ°å€åé¢å¿˜è®°åŠ `?wsdl`
 
-##### Ê¹ÓÃÆäËû¿Í»§¶Ë¹¤¾ß£¨ÀıÈçsoapUI£©»òÕßÆäËûÓïÑÔ£¨ÀıÈçC£©,µ÷ÓÃ±¨´í
+##### ä½¿ç”¨å…¶ä»–å®¢æˆ·ç«¯å·¥å…·ï¼ˆä¾‹å¦‚soapUIï¼‰æˆ–è€…å…¶ä»–è¯­è¨€ï¼ˆä¾‹å¦‚Cï¼‰,è°ƒç”¨æŠ¥é”™
 ```
 [WARN ] 2015-09-18 13:56:20,697 - Interceptor for {http://server.ws.computech.com/}EcifServiceService has thrown exception, unwinding now
 org.apache.cxf.binding.soap.SoapFault: Error reading XMLStreamReader.
@@ -94,7 +94,32 @@ Caused by: com.ctc.wstx.exc.WstxEOFException: Unexpected EOF in prolog
 	at org.apache.cxf.binding.soap.interceptor.ReadHeadersInterceptor.handleMessage(ReadHeadersInterceptor.java:165)
 	... 24 more
 ```
-´Ë´¦Ö÷Òª¿´Á½¸ö´íÎóµã£º`Error reading XMLStreamReader.` ºÍ ` at [row,col {unknown-source}]: [1,0]`
+æ­¤å¤„ä¸»è¦çœ‹ä¸¤ä¸ªé”™è¯¯ç‚¹ï¼š`Error reading XMLStreamReader.` å’Œ ` at [row,col {unknown-source}]: [1,0]`
 
-µÚÒ»¸ö¿ÉÄÜÔ­ÒòÊÇJAWµÄ°æ±¾Ì«µÍ£¬´ó¶àÇé¿ö³öÏÖÓÚÊ¹ÓÃJBOSSÈİÆ÷Ê±·¢Éú£¬»»Ò»¸ö°æ±¾¸ßÒ»µãµÄ¾Í¿ÉÒÔ½â¾ö¡£
-µÚ¶ş¸öÔ­ÒòÊÇ½âÎöXML¸ñÊ½³ö´í¡£`soapUI`¹¤¾ßÖĞ¿ÉÒÔÊ¹ÓÃ`<![CDATA[***]]>`½«ÇëÇóxml¸ñÊ½µÄ±¨ÎÄ°ü¹üÔÚÀïÃæ¼´¿É½â¾ö¡£
+ç¬¬ä¸€ä¸ªå¯èƒ½åŸå› æ˜¯JAWçš„ç‰ˆæœ¬å¤ªä½ï¼Œå¤§å¤šæƒ…å†µå‡ºç°äºä½¿ç”¨JBOSSå®¹å™¨æ—¶å‘ç”Ÿï¼Œæ¢ä¸€ä¸ªç‰ˆæœ¬é«˜ä¸€ç‚¹çš„å°±å¯ä»¥è§£å†³ã€‚
+ç¬¬äºŒä¸ªåŸå› æ˜¯è§£æXMLæ ¼å¼å‡ºé”™ã€‚`soapUI`å·¥å…·ä¸­å¯ä»¥ä½¿ç”¨`<![CDATA[***]]>`å°†è¯·æ±‚xmlæ ¼å¼çš„æŠ¥æ–‡åŒ…è£¹åœ¨é‡Œé¢å³å¯è§£å†³ã€‚
+
+
+#### å°†é¡¹ç›®æ‰“åŒ…Jaræ‰§è¡Œ
+ä¿®æ”¹`pom.xml`ï¼Œå°†`<packaging>war</packaging>`æ›´æ”¹ä¸º`<packaging>jar</packaging>`
+å¢åŠ mavenæ’ä»¶å¦‚ä¸‹ï¼š
+```
+<plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-jar-plugin</artifactId>
+	<version>2.4</version>
+	<configuration>
+		<archive>
+			<manifest>
+				<addClasspath>true</addClasspath>
+				<classpathPrefix>lib/</classpathPrefix>
+				<mainClass>com.fancye.boot.Boot</mainClass>
+			</manifest>
+		</archive>
+	</configuration>
+</plugin>
+```
+`<mainClass>`æ˜¯Mainå‡½æ•°ä¸»å…¥å£
+
+ç„¶åæ‰§è¡Œ`maven clean package`å‘½ä»¤ä¹‹åï¼Œå°†åœ¨`/target`ç›®å½•ä¸‹ç”Ÿæˆ`apache_cxf_spring-0.0.1-SNAPSHOT.jar`æ–‡ä»¶
+æ‰“å¼€CMDçª—å£ï¼Œæ‰§è¡Œ`java -jar jaræ‰€åœ¨è·¯å¾„/apache_cxf_spring-0.0.1-SNAPSHOT.jar`å³å¯å¯åŠ¨æœåŠ¡
