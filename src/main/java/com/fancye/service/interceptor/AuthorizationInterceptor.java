@@ -77,6 +77,7 @@ public class AuthorizationInterceptor extends AbstractPhaseInterceptor<SoapMessa
 		SoapHeader header = (SoapHeader) message.getHeader(new QName(namespaceURI, localPart));
 		if (header == null)
 			return false;
+		// ElementNSImpl是内部专用 API, 可能会在未来发行版中删除
 		ElementNSImpl ei = (ElementNSImpl) header.getObject();
 		String mytoken;
 		try {

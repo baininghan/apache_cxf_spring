@@ -7,6 +7,7 @@ import javax.jws.WebService;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.fancye.client.adapter.StringObjectMapAdapter;
+import com.fancye.service.User;
 
 
 /**
@@ -21,6 +22,10 @@ public interface HelloService {
 	
 	public void addPerson(Person person);
 	
-	@XmlJavaTypeAdapter(StringObjectMapAdapter.class)
-	public List<Map<String, Object>> getListOfMap(String key, String value);
+//	@XmlJavaTypeAdapter(StringObjectMapAdapter.class)
+//	public List<Map<String, Object>> getListOfMap(String key, String value);
+	
+	public void getObject(User[] users);
+	
+	public void getObject2(Object[] objs);
 }

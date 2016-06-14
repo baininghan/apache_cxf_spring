@@ -20,6 +20,7 @@ import com.fancye.client.adapter.StringObjectMap.StringObjectEntry;
 import com.fancye.client.interceptor.MyMessageInterceptor;
 import com.fancye.service.HelloService;
 import com.fancye.service.Person;
+import com.fancye.service.User;
 
 /**
  * 客户端调用服务端的测试方法
@@ -46,9 +47,9 @@ public class ClientInvoke {
 //		client.sayHi("Fancye");
 		
 		// （3）动态调用，不依赖于服务器接口文件
-		DynamicClientFactory factory = DynamicClientFactory.newInstance();
-		Client client = factory.createClient(wsdl2);
-		client.invoke("sayDoubleHi", "Fancye");
+//		DynamicClientFactory factory = DynamicClientFactory.newInstance();
+//		Client client = factory.createClient(wsdl2);
+//		client.invoke("sayDoubleHi", "Fancye");
 		
 		//（4）还可以使用其他第三方的插件生成客户端代码，比如MyEclipse自带的JAX插件
 		
@@ -63,6 +64,11 @@ public class ClientInvoke {
 //		 
 //		client.invoke("addPerson", person);
 		
+		
+		DynamicClientFactory factory = DynamicClientFactory.newInstance();
+		Client client = factory.createClient(wsdl);
+		
+		client.invoke("sayHi", "Fancye");
 		System.exit(0);
 	}
 
